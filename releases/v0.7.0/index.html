@@ -10,9 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://plexusone.github.io/w3pilot/enhancement-requests/EHRQ_emulation-presets/">
+        <link rel="canonical" href="https://plexusone.github.io/w3pilot/releases/v0.7.0/">
       
       
+        <link rel="prev" href="../../development/changelog/">
+      
+      
+        <link rel="next" href="../v0.6.0/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Enhancement Request: Network and CPU Emulation Presets - W3Pilot</title>
+        <title>v0.7.0 - W3Pilot</title>
       
     
     
@@ -72,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#enhancement-request-network-and-cpu-emulation-presets" class="md-skip">
+        <a href="#release-notes-v070" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Enhancement Request: Network and CPU Emulation Presets
+              v0.7.0
             
           </span>
         </div>
@@ -1062,8 +1066,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -1074,13 +1080,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
@@ -1096,7 +1100,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Releases
@@ -1107,10 +1111,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../releases/v0.7.0/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    v0.7.0
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1121,6 +1147,137 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Highlights
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocol-agnostic-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Protocol-Agnostic Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bug-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bug Fixes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed-bidi-command-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed BiDi Command Names
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improved-test-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Improved Test Cleanup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temporarily-disabled-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporarily Disabled Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Temporarily Disabled Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tracing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage State
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#breaking-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Breaking Changes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1133,7 +1290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.6.0/" class="md-nav__link">
+      <a href="../v0.6.0/" class="md-nav__link">
         
   
   
@@ -1156,7 +1313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.5.0/" class="md-nav__link">
+      <a href="../v0.5.0/" class="md-nav__link">
         
   
   
@@ -1179,7 +1336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.4.0/" class="md-nav__link">
+      <a href="../v0.4.0/" class="md-nav__link">
         
   
   
@@ -1202,7 +1359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.3.0/" class="md-nav__link">
+      <a href="../v0.3.0/" class="md-nav__link">
         
   
   
@@ -1225,7 +1382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.2.0/" class="md-nav__link">
+      <a href="../v0.2.0/" class="md-nav__link">
         
   
   
@@ -1248,7 +1405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.1.0/" class="md-nav__link">
+      <a href="../v0.1.0/" class="md-nav__link">
         
   
   
@@ -1298,145 +1455,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#highlights" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      Highlights
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#motivation" class="md-nav__link">
+  <a href="#protocol-agnostic-methods" class="md-nav__link">
     <span class="md-ellipsis">
-      Motivation
+      Protocol-Agnostic Methods
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#current-state" class="md-nav__link">
+  <a href="#bug-fixes" class="md-nav__link">
     <span class="md-ellipsis">
-      Current State
+      Bug Fixes
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#proposed-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Proposed Commands
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Proposed Commands">
+    <nav class="md-nav" aria-label="Bug Fixes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-network-emulation" class="md-nav__link">
+  <a href="#fixed-bidi-command-names" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Network Emulation
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Network Emulation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#request-preset" class="md-nav__link">
-    <span class="md-ellipsis">
-      Request (Preset)
+      Fixed BiDi Command Names
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#request-custom" class="md-nav__link">
+  <a href="#improved-test-cleanup" class="md-nav__link">
     <span class="md-ellipsis">
-      Request (Custom)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#presets" class="md-nav__link">
-    <span class="md-ellipsis">
-      Presets
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-cpu-emulation" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. CPU Emulation
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. CPU Emulation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#request" class="md-nav__link">
-    <span class="md-ellipsis">
-      Request
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rate-values" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rate Values
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cdp-implementation" class="md-nav__link">
-    <span class="md-ellipsis">
-      CDP Implementation
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="CDP Implementation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#network-throttling" class="md-nav__link">
-    <span class="md-ellipsis">
-      Network Throttling
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cpu-throttling" class="md-nav__link">
-    <span class="md-ellipsis">
-      CPU Throttling
+      Improved Test Cleanup
     </span>
   </a>
   
@@ -1448,27 +1506,60 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
+  <a href="#temporarily-disabled-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Use Cases
+      Temporarily Disabled Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Temporarily Disabled Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tracing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage State
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#breaking-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Breaking Changes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#w3pilot-integration" class="md-nav__link">
+  <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
-      W3Pilot Integration
+      Installation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
+  <a href="#documentation" class="md-nav__link">
     <span class="md-ellipsis">
-      References
+      Documentation
     </span>
   </a>
   
@@ -1493,190 +1584,109 @@
   
 
 
-<h1 id="enhancement-request-network-and-cpu-emulation-presets">Enhancement Request: Network and CPU Emulation Presets<a class="headerlink" href="#enhancement-request-network-and-cpu-emulation-presets" title="Permanent link">&para;</a></h1>
-<p><strong>ID</strong>: EHRQ_emulation-presets
-<strong>Status</strong>: Proposed
-<strong>Priority</strong>: P1
-<strong>Target</strong>: VibiumDev/vibium (clicker)
-<strong>Date</strong>: 2026-03-24</p>
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>Add <code>vibium:emulate.network</code> and <code>vibium:emulate.cpu</code> commands for performance testing under constrained conditions.</p>
-<h2 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">&para;</a></h2>
-<p>Chrome DevTools MCP provides <code>emulate</code> tool which enables:</p>
+<h1 id="release-notes-v070">Release Notes - v0.7.0<a class="headerlink" href="#release-notes-v070" title="Permanent link">&para;</a></h1>
+<p>Protocol-agnostic SDK release with BiDi-first, CDP-fallback architecture for improved compatibility.</p>
+<h2 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">&para;</a></h2>
+<p><strong>Automatic protocol selection for maximum compatibility.</strong></p>
+<p>The SDK now automatically chooses the best protocol for each operation:</p>
 <ul>
-<li>Testing on slow networks (3G, 4G)</li>
-<li>Simulating mobile CPU performance</li>
-<li>Performance regression detection</li>
-<li>Real-world condition testing</li>
+<li><strong>BiDi First</strong> - Try WebDriver BiDi (cross-browser standard) first</li>
+<li><strong>CDP Fallback</strong> - Fall back to Chrome DevTools Protocol when BiDi doesn't support the feature</li>
+<li><strong>Transparent</strong> - No code changes required; existing code works automatically</li>
 </ul>
-<p>Essential for accessibility testing where users may have older devices or slow connections.</p>
-<h2 id="current-state">Current State<a class="headerlink" href="#current-state" title="Permanent link">&para;</a></h2>
-<p><strong>Available</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Media emulation only</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nx">pilot</span><span class="p">.</span><span class="nx">EmulateMedia</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">w3pilot</span><span class="p">.</span><span class="nx">EmulateMediaOptions</span><span class="p">{</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nx">ColorScheme</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;dark&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nx">ReducedMotion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;reduce&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">})</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1">// Offline mode</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nx">pilot</span><span class="p">.</span><span class="nx">SetOffline</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
-</code></pre></div></p>
-<p><strong>Not available</strong>: Network throttling, CPU throttling.</p>
-<h2 id="proposed-commands">Proposed Commands<a class="headerlink" href="#proposed-commands" title="Permanent link">&para;</a></h2>
-<h3 id="1-network-emulation">1. Network Emulation<a class="headerlink" href="#1-network-emulation" title="Permanent link">&para;</a></h3>
-<h4 id="request-preset">Request (Preset)<a class="headerlink" href="#request-preset" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vibium:emulate.network&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">&quot;preset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;slow-3g&quot;</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
-</code></pre></div>
-<h4 id="request-custom">Request (Custom)<a class="headerlink" href="#request-custom" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vibium:emulate.network&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">&quot;offline&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">&quot;latency&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">&quot;downloadThroughput&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1500000</span><span class="p">,</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">&quot;uploadThroughput&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">750000</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
-</code></pre></div>
-<h4 id="presets">Presets<a class="headerlink" href="#presets" title="Permanent link">&para;</a></h4>
+<h2 id="protocol-agnostic-methods">Protocol-Agnostic Methods<a class="headerlink" href="#protocol-agnostic-methods" title="Permanent link">&para;</a></h2>
+<p>These methods try BiDi first and fall back to CDP automatically:</p>
 <table>
 <thead>
 <tr>
-<th>Preset</th>
-<th>Latency (ms)</th>
-<th>Download (bps)</th>
-<th>Upload (bps)</th>
+<th>Method</th>
+<th>BiDi Command</th>
+<th>CDP Fallback</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>offline</code></td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
+<td><code>SetOffline()</code></td>
+<td><code>vibium:network.setOffline</code></td>
+<td>Network emulation</td>
 </tr>
 <tr>
-<td><code>slow-3g</code></td>
-<td>400</td>
-<td>400000</td>
-<td>400000</td>
+<td><code>ConsoleMessages()</code></td>
+<td><code>vibium:console.messages</code></td>
+<td>Console debugger</td>
 </tr>
 <tr>
-<td><code>fast-3g</code></td>
-<td>150</td>
-<td>1500000</td>
-<td>750000</td>
-</tr>
-<tr>
-<td><code>4g</code></td>
-<td>50</td>
-<td>4000000</td>
-<td>3000000</td>
-</tr>
-<tr>
-<td><code>wifi</code></td>
-<td>10</td>
-<td>30000000</td>
-<td>15000000</td>
+<td><code>ClearConsoleMessages()</code></td>
+<td><code>vibium:console.clear</code></td>
+<td>Console debugger</td>
 </tr>
 </tbody>
 </table>
-<h3 id="2-cpu-emulation">2. CPU Emulation<a class="headerlink" href="#2-cpu-emulation" title="Permanent link">&para;</a></h3>
-<h4 id="request">Request<a class="headerlink" href="#request" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vibium:emulate.cpu&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">&quot;rate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Works automatically - tries BiDi, falls back to CDP if needed</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">pilot</span><span class="p">.</span><span class="nx">SetOffline</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">// Get console messages - uses CDP console debugger as fallback</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nx">messages</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">pilot</span><span class="p">.</span><span class="nx">ConsoleMessages</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;error&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="rate-values">Rate Values<a class="headerlink" href="#rate-values" title="Permanent link">&para;</a></h4>
+<h2 id="bug-fixes">Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permanent link">&para;</a></h2>
+<h3 id="fixed-bidi-command-names">Fixed BiDi Command Names<a class="headerlink" href="#fixed-bidi-command-names" title="Permanent link">&para;</a></h3>
+<p>Corrected command names to match clicker implementation:</p>
 <table>
 <thead>
 <tr>
-<th>Rate</th>
-<th>Description</th>
-<th>Use Case</th>
+<th>Method</th>
+<th>Was Sending</th>
+<th>Now Sends</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>No throttling</td>
-<td>Baseline</td>
+<td><code>HandleDialog()</code></td>
+<td><code>vibium:dialog.handle</code></td>
+<td><code>vibium:dialog.accept</code> / <code>vibium:dialog.dismiss</code></td>
 </tr>
 <tr>
-<td>2</td>
-<td>2x slowdown</td>
-<td>Fast mobile</td>
-</tr>
-<tr>
-<td>4</td>
-<td>4x slowdown</td>
-<td>Mid-tier mobile</td>
-</tr>
-<tr>
-<td>6</td>
-<td>6x slowdown</td>
-<td>Low-end mobile</td>
+<td><code>SetExtraHTTPHeaders()</code></td>
+<td><code>vibium:network.setHeaders</code></td>
+<td><code>vibium:page.setHeaders</code></td>
 </tr>
 </tbody>
 </table>
-<h2 id="cdp-implementation">CDP Implementation<a class="headerlink" href="#cdp-implementation" title="Permanent link">&para;</a></h2>
-<h3 id="network-throttling">Network Throttling<a class="headerlink" href="#network-throttling" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">cdp</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;Network.emulateNetworkConditions&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nx">offline</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nx">latency</span><span class="o">:</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w">           </span><span class="c1">// ms</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nx">downloadThroughput</span><span class="o">:</span><span class="w"> </span><span class="mf">1500000</span><span class="p">,</span><span class="w">  </span><span class="c1">// bytes/sec</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nx">uploadThroughput</span><span class="o">:</span><span class="w"> </span><span class="mf">750000</span><span class="p">,</span><span class="w">     </span><span class="c1">// bytes/sec</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="nx">connectionType</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;cellular3g&#39;</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">});</span>
-</code></pre></div>
-<h3 id="cpu-throttling">CPU Throttling<a class="headerlink" href="#cpu-throttling" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">cdp</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;Emulation.setCPUThrottlingRate&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nx">rate</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="w">  </span><span class="c1">// 4x slowdown</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">});</span>
-</code></pre></div>
-<h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Mobile testing</strong>: Simulate mobile network and CPU</li>
-<li><strong>Performance budgets</strong>: Verify load times under constraints</li>
-<li><strong>Accessibility</strong>: Test for users with slow connections</li>
-<li><strong>CI/CD</strong>: Automated performance regression testing</li>
-</ol>
-<h2 id="w3pilot-integration">W3Pilot Integration<a class="headerlink" href="#w3pilot-integration" title="Permanent link">&para;</a></h2>
-<p>Once available in clicker:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// SDK - Network</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">pilot</span><span class="p">.</span><span class="nx">EmulateNetwork</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">w3pilot</span><span class="p">.</span><span class="nx">NetworkPresetSlow3G</span><span class="p">)</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1">// or</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">pilot</span><span class="p">.</span><span class="nx">EmulateNetwork</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">w3pilot</span><span class="p">.</span><span class="nx">NetworkConditions</span><span class="p">{</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nx">Latency</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nx">DownloadThroughput</span><span class="p">:</span><span class="w"> </span><span class="mi">1500000</span><span class="p">,</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">})</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1">// SDK - CPU</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">pilot</span><span class="p">.</span><span class="nx">EmulateCPU</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="c1">// 4x slowdown</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="c1">// MCP Tools</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="c1">// tool: emulate_network</span>
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="c1">// params: { preset?: string, latency?: number, download?: number, upload?: number }</span>
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="c1">// tool: emulate_cpu</span>
-<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="c1">// params: { rate: number }</span>
-</code></pre></div>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<h3 id="improved-test-cleanup">Improved Test Cleanup<a class="headerlink" href="#improved-test-cleanup" title="Permanent link">&para;</a></h3>
+<p>Fixed Chrome process leaks in integration tests:</p>
 <ul>
-<li><a href="https://chromedevtools.github.io/devtools-protocol/tot/Network/#method-emulateNetworkConditions">CDP Network.emulateNetworkConditions</a></li>
-<li><a href="https://chromedevtools.github.io/devtools-protocol/tot/Emulation/#method-setCPUThrottlingRate">CDP Emulation.setCPUThrottlingRate</a></li>
-<li><a href="https://github.com/anthropics/chrome-devtools-mcp">Chrome DevTools MCP - emulate</a></li>
+<li>Cleanup now uses a fresh context (not the potentially-timed-out test context)</li>
+<li>Registered via <code>t.Cleanup()</code> for automatic handling on test end/panic</li>
+<li>Made cleanup idempotent for safety</li>
+</ul>
+<h2 id="temporarily-disabled-features">Temporarily Disabled Features<a class="headerlink" href="#temporarily-disabled-features" title="Permanent link">&para;</a></h2>
+<h3 id="tracing">Tracing<a class="headerlink" href="#tracing" title="Permanent link">&para;</a></h3>
+<p>Tracing functionality is commented out pending clicker support for <code>vibium:tracing.*</code> commands.</p>
+<p><strong>Affected:</strong>
+- <code>Pilot.Tracing()</code> method
+- <code>BrowserContext.Tracing()</code> method
+- MCP tools: <code>trace_start</code>, <code>trace_stop</code>, <code>trace_chunk_*</code>, <code>trace_group_*</code></p>
+<p><strong>Workaround:</strong> Use CDP performance tracing for performance analysis (different from action tracing).</p>
+<h3 id="storage-state">Storage State<a class="headerlink" href="#storage-state" title="Permanent link">&para;</a></h3>
+<p><code>StorageState()</code> is limited pending clicker support for <code>vibium:context.storageState</code>.</p>
+<p><strong>Workaround:</strong> Use JavaScript evaluation to access localStorage/sessionStorage directly:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Get localStorage</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">pilot</span><span class="p">.</span><span class="nx">Evaluate</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;JSON.stringify(localStorage)&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">// Set localStorage</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nx">pilot</span><span class="p">.</span><span class="nx">Evaluate</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="s">`localStorage.setItem(&quot;key&quot;, &quot;value&quot;)`</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="breaking-changes">Breaking Changes<a class="headerlink" href="#breaking-changes" title="Permanent link">&para;</a></h2>
+<p>None. All changes are backwards compatible.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>go<span class="w"> </span>get<span class="w"> </span>github.com/plexusone/w3pilot@v0.7.0
+</code></pre></div>
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../guide/cdp/#protocol-agnostic-methods">Protocol-Agnostic SDK Guide</a></li>
+<li><a href="../../architecture/overview/">Architecture Overview</a></li>
+<li><a href="../../guide/sdk/">Go Client SDK Guide</a></li>
 </ul>
 
 

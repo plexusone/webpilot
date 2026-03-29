@@ -1067,6 +1067,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#protocol-agnostic-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Protocol-Agnostic Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#custom-commands" class="md-nav__link">
     <span class="md-ellipsis">
       Custom Commands
@@ -1325,6 +1334,29 @@
             Releases
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../releases/v0.7.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    v0.7.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1643,6 +1675,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#protocol-agnostic-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Protocol-Agnostic Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#custom-commands" class="md-nav__link">
     <span class="md-ellipsis">
       Custom Commands
@@ -1898,6 +1939,64 @@
 <li>Any Chrome-specific DevTools feature</li>
 </ul>
 <p>Both protocols connect to the same Chrome browser instance, discovered via the <code>DevToolsActivePort</code> file in Chrome's user data directory.</p>
+<h3 id="protocol-agnostic-methods">Protocol-Agnostic Methods<a class="headerlink" href="#protocol-agnostic-methods" title="Permanent link">&para;</a></h3>
+<p>Some SDK methods are <strong>protocol-agnostic</strong> - they try BiDi first and automatically fall back to CDP when BiDi doesn't support the feature:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>User calls SetOffline(true)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    │
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    ▼
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>┌─────────────────────────────┐
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>│ Try BiDi command            │
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>│ vibium:network.setOffline   │
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>└─────────────┬───────────────┘
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>              │
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>              ▼ (fails: &quot;unknown command&quot;)
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>┌─────────────────────────────┐
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>│ Detect unsupported command  │
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>│ IsUnsupportedCommand(err)   │
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>└─────────────┬───────────────┘
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>              │
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>              ▼
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>┌─────────────────────────────┐
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>│ Fall back to CDP            │
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>│ EmulateNetwork(Offline)     │
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>└─────────────┬───────────────┘
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>              │
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>              ▼
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>         Success
+</code></pre></div>
+<p><strong>Protocol-agnostic methods:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>BiDi Command</th>
+<th>CDP Fallback</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SetOffline()</code></td>
+<td><code>vibium:network.setOffline</code></td>
+<td><code>EmulateNetwork(NetworkOffline)</code></td>
+</tr>
+<tr>
+<td><code>ConsoleMessages()</code></td>
+<td><code>vibium:console.messages</code></td>
+<td><code>ConsoleEntries()</code></td>
+</tr>
+<tr>
+<td><code>ClearConsoleMessages()</code></td>
+<td><code>vibium:console.clear</code></td>
+<td><code>consoleDebugger.Clear()</code></td>
+</tr>
+</tbody>
+</table>
+<p>This design ensures:</p>
+<ul>
+<li><strong>Stable API</strong> - Users don't need to change code when BiDi support is added</li>
+<li><strong>Best available backend</strong> - Automatically uses the most capable implementation</li>
+<li><strong>Graceful degradation</strong> - Clear errors when neither protocol supports the feature</li>
+</ul>
 <h3 id="custom-commands">Custom Commands<a class="headerlink" href="#custom-commands" title="Permanent link">&para;</a></h3>
 <p>W3Pilot extends BiDi with <code>vibium:*</code> commands for:</p>
 <ul>

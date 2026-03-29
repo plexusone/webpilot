@@ -574,6 +574,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#protocol-agnostic-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Protocol-Agnostic Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#checking-cdp-availability" class="md-nav__link">
     <span class="md-ellipsis">
       Checking CDP Availability
@@ -1366,6 +1375,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../releases/v0.7.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    v0.7.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../releases/v0.6.0/" class="md-nav__link">
         
   
@@ -1534,6 +1566,15 @@
   <a href="#dual-protocol-architecture" class="md-nav__link">
     <span class="md-ellipsis">
       Dual-Protocol Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocol-agnostic-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Protocol-Agnostic Methods
     </span>
   </a>
   
@@ -1798,6 +1839,35 @@
 </tr>
 </tbody>
 </table>
+<h2 id="protocol-agnostic-methods">Protocol-Agnostic Methods<a class="headerlink" href="#protocol-agnostic-methods" title="Permanent link">&para;</a></h2>
+<p>Some SDK methods automatically use CDP as a fallback when BiDi doesn't support a feature:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>BiDi (primary)</th>
+<th>CDP (fallback)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SetOffline()</code></td>
+<td><code>vibium:network.setOffline</code></td>
+<td><code>EmulateNetwork(NetworkOffline)</code></td>
+</tr>
+<tr>
+<td><code>ConsoleMessages()</code></td>
+<td><code>vibium:console.messages</code></td>
+<td><code>ConsoleEntries()</code></td>
+</tr>
+<tr>
+<td><code>ClearConsoleMessages()</code></td>
+<td><code>vibium:console.clear</code></td>
+<td><code>consoleDebugger.Clear()</code></td>
+</tr>
+</tbody>
+</table>
+<p>You don't need to handle this manually - the SDK detects unsupported BiDi commands and falls back automatically. When BiDi support is added upstream, your code will use it without changes.</p>
 <h2 id="checking-cdp-availability">Checking CDP Availability<a class="headerlink" href="#checking-cdp-availability" title="Permanent link">&para;</a></h2>
 <p>CDP is automatically connected when launching a browser:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nx">pilot</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">w3pilot</span><span class="p">.</span><span class="nx">Launch</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
