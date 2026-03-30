@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://plexusone.github.io/w3pilot/enhancement-requests/EHRQ_network-response-body/">
+        <link rel="canonical" href="https://plexusone.github.io/w3pilot/bugs/BUG_pipe-broken-after-launch/">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>Enhancement Request: Network Response Body Access - W3Pilot</title>
+        <title>Bug: Broken Pipe After browser_launch in Pipe Mode - W3Pilot</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#enhancement-request-network-response-body-access" class="md-skip">
+        <a href="#bug-broken-pipe-after-browser_launch-in-pipe-mode" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Enhancement Request: Network Response Body Access
+              Bug: Broken Pipe After browser_launch in Pipe Mode
             
           </span>
         </div>
@@ -1110,6 +1110,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../releases/v0.8.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    v0.8.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../releases/v0.7.0/" class="md-nav__link">
         
   
@@ -1298,6 +1321,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fix
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
       Summary
@@ -1307,46 +1339,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#motivation" class="md-nav__link">
+  <a href="#reproduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Motivation
+      Reproduction
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#current-state" class="md-nav__link">
-    <span class="md-ellipsis">
-      Current State
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#proposed-command" class="md-nav__link">
-    <span class="md-ellipsis">
-      Proposed Command
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Proposed Command">
+    <nav class="md-nav" aria-label="Reproduction">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#request" class="md-nav__link">
+  <a href="#via-mcp-kiro-cli" class="md-nav__link">
     <span class="md-ellipsis">
-      Request
+      Via MCP (Kiro CLI)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#response" class="md-nav__link">
+  <a href="#via-fifo-standalone-no-kiro" class="md-nav__link">
     <span class="md-ellipsis">
-      Response
+      Via FIFO (standalone, no Kiro)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clicker-works-standalone" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clicker works standalone
     </span>
   </a>
   
@@ -1358,45 +1381,69 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cdp-implementation" class="md-nav__link">
+  <a href="#root-cause-analysis" class="md-nav__link">
     <span class="md-ellipsis">
-      CDP Implementation
+      Root Cause Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Root Cause Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observation-1-browsing-context-not-captured-in-pipe-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observation 1: Browsing context not captured in pipe mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observation-2-getcontext-triggers-the-broken-pipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observation 2: getContext triggers the broken pipe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observation-3-readstderr-discards-clicker-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observation 3: readStderr discards clicker output
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suggested-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Suggested Fix
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#environment" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      Environment
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
+  <a href="#impact" class="md-nav__link">
     <span class="md-ellipsis">
-      Use Cases
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#w3pilot-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      W3Pilot Integration
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      References
+      Impact
     </span>
   </a>
   
@@ -1421,107 +1468,122 @@
   
 
 
-<h1 id="enhancement-request-network-response-body-access">Enhancement Request: Network Response Body Access<a class="headerlink" href="#enhancement-request-network-response-body-access" title="Permanent link">&para;</a></h1>
-<p><strong>ID</strong>: EHRQ_network-response-body
-<strong>Status</strong>: Proposed
-<strong>Priority</strong>: P1
-<strong>Target</strong>: VibiumDev/vibium (clicker)
-<strong>Date</strong>: 2026-03-24</p>
+<h1 id="bug-broken-pipe-after-browser_launch-in-pipe-mode">Bug: Broken Pipe After browser_launch in Pipe Mode<a class="headerlink" href="#bug-broken-pipe-after-browser_launch-in-pipe-mode" title="Permanent link">&para;</a></h1>
+<p><strong>ID</strong>: BUG_pipe-broken-after-launch
+<strong>Severity</strong>: P0 — blocks all MCP usage
+<strong>Status</strong>: ✅ Fixed (commit 447bb95)
+<strong>Date</strong>: 2026-03-29
+<strong>Version</strong>: w3pilot-mcp v0.2.0 (binary built 2026-03-29 13:46)
+<strong>Clicker</strong>: <code>clicker vdev</code> (built 2026-03-26)
+<strong>OS</strong>: macOS (arm64)</p>
+<h2 id="fix">Fix<a class="headerlink" href="#fix" title="Permanent link">&para;</a></h2>
+<p><strong>Root cause</strong>: <code>exec.CommandContext(ctx)</code> was used to spawn clicker, which kills the child process when the context is cancelled. In MCP, each tool call has its own request context that gets cancelled after the tool returns. This killed clicker after <code>browser_launch</code>, causing subsequent commands to fail.</p>
+<p><strong>Solution</strong> (transport_pipe.go):
+- Use <code>exec.Command()</code> instead of <code>exec.CommandContext()</code> for clicker process
+- Capture <code>browsingContext</code> from <code>contextCreated</code> event during startup
+- Log clicker stderr when <code>W3PILOT_DEBUG=1</code> is set</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>Add <code>vibium:network.getResponseBody</code> command to retrieve full request/response content for debugging.</p>
-<h2 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">&para;</a></h2>
-<p>Chrome DevTools MCP provides <code>get_network_request</code> which enables:</p>
-<ul>
-<li>API response debugging</li>
-<li>Test fixture generation</li>
-<li>Response validation</li>
-<li>Binary content inspection (images, files)</li>
-</ul>
-<p>Current W3Pilot network tools only capture metadata, not response bodies.</p>
-<h2 id="current-state">Current State<a class="headerlink" href="#current-state" title="Permanent link">&para;</a></h2>
-<p><strong>Available</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nx">requests</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">pilot</span><span class="p">.</span><span class="nx">NetworkRequests</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">// Returns: URL, Method, Status, Headers, ResourceType</span>
+<p><code>browser_launch</code> succeeds but every subsequent command (<code>page_navigate</code>, <code>page_get_url</code>, etc.) fails with:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>failed to get browsing context: failed to send command: write |1: broken pipe
+</code></pre></div>
+<p>This blocks all MCP server usage.</p>
+<h2 id="reproduction">Reproduction<a class="headerlink" href="#reproduction" title="Permanent link">&para;</a></h2>
+<h3 id="via-mcp-kiro-cli">Via MCP (Kiro CLI)<a class="headerlink" href="#via-mcp-kiro-cli" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Step 1: succeeds</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tools/call&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;browser_launch&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;headless&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}}}</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">// Response: {&quot;message&quot;: &quot;Browser launched successfully&quot;}</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1">// Step 2: fails</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">{</span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tools/call&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;page_navigate&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com&quot;</span><span class="p">}}}</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">// Response: &quot;navigation failed: failed to get browsing context: failed to send command: write |1: broken pipe&quot;</span>
+</code></pre></div>
+<h3 id="via-fifo-standalone-no-kiro">Via FIFO (standalone, no Kiro)<a class="headerlink" href="#via-fifo-standalone-no-kiro" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mkfifo<span class="w"> </span>/tmp/w3pilot-fifo
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>/Users/johnwang/go/bin/w3pilot-mcp<span class="w"> </span>-headless<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-timeout<span class="o">=</span>10s<span class="w"> </span>&lt;<span class="w"> </span>/tmp/w3pilot-fifo<span class="w"> </span>&gt;<span class="w"> </span>/tmp/out.log<span class="w"> </span><span class="m">2</span>&gt;/tmp/err.log<span class="w"> </span><span class="p">&amp;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="o">(</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;method&quot;:&quot;initialize&quot;,&quot;params&quot;:{&quot;protocolVersion&quot;:&quot;2024-11-05&quot;,&quot;capabilities&quot;:{},&quot;clientInfo&quot;:{&quot;name&quot;:&quot;test&quot;,&quot;version&quot;:&quot;0.1&quot;}}}&#39;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>sleep<span class="w"> </span><span class="m">2</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;notifications/initialized&quot;,&quot;params&quot;:{}}&#39;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>sleep<span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:2,&quot;method&quot;:&quot;tools/call&quot;,&quot;params&quot;:{&quot;name&quot;:&quot;browser_launch&quot;,&quot;arguments&quot;:{&quot;headless&quot;:true}}}&#39;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>sleep<span class="w"> </span><span class="m">3</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:3,&quot;method&quot;:&quot;tools/call&quot;,&quot;params&quot;:{&quot;name&quot;:&quot;page_navigate&quot;,&quot;arguments&quot;:{&quot;url&quot;:&quot;https://example.com&quot;}}}&#39;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>sleep<span class="w"> </span><span class="m">5</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="o">)</span><span class="w"> </span>&gt;<span class="w"> </span>/tmp/w3pilot-fifo
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>cat<span class="w"> </span>/tmp/out.log
+</code></pre></div>
+<p>Result: <code>browser_launch</code> returns success, <code>page_navigate</code> returns broken pipe.</p>
+<h3 id="clicker-works-standalone">Clicker works standalone<a class="headerlink" href="#clicker-works-standalone" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>clicker<span class="w"> </span>pipe<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</code></pre></div>
+<p>Output confirms clicker launches fine:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[router] Launching browser for client 1...
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>[router] Browser launched for client 1 (BiDi session)
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>{&quot;method&quot;:&quot;browsingContext.contextCreated&quot;,&quot;params&quot;:{&quot;context&quot;:&quot;FD5508EE...&quot;,&quot;url&quot;:&quot;about:blank&quot;,...}}
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>{&quot;method&quot;:&quot;vibium:lifecycle.ready&quot;,&quot;params&quot;:{&quot;version&quot;:&quot;dev&quot;}}
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>[router] Closing browser session for client 1
 </code></pre></div></p>
-<p><strong>Not available</strong>: Response body content.</p>
-<h2 id="proposed-command">Proposed Command<a class="headerlink" href="#proposed-command" title="Permanent link">&para;</a></h2>
-<h3 id="request">Request<a class="headerlink" href="#request" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vibium:network.getResponseBody&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">&quot;requestId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1234.5&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">&quot;saveTo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/tmp/response.json&quot;</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
+<h2 id="root-cause-analysis">Root Cause Analysis<a class="headerlink" href="#root-cause-analysis" title="Permanent link">&para;</a></h2>
+<p>The issue appears to be in <code>transport_pipe.go</code> / <code>pilot.go</code> pipe mode initialization.</p>
+<h3 id="observation-1-browsing-context-not-captured-in-pipe-mode">Observation 1: Browsing context not captured in pipe mode<a class="headerlink" href="#observation-1-browsing-context-not-captured-in-pipe-mode" title="Permanent link">&para;</a></h3>
+<p>In <code>launchPipe()</code> (<code>pilot.go:69-91</code>), after <code>transport.Start()</code> returns:
+- The <code>browsingContext.contextCreated</code> event has already been received (clicker sends it before <code>vibium:lifecycle.ready</code>)
+- But <code>launchPipe</code> never registers a handler for it
+- <code>pilot.browsingContext</code> remains empty</p>
+<p>Compare with <code>transport_ws.go:62-63</code> which explicitly listens for <code>browsingContext.contextCreated</code>.</p>
+<h3 id="observation-2-getcontext-triggers-the-broken-pipe">Observation 2: getContext triggers the broken pipe<a class="headerlink" href="#observation-2-getcontext-triggers-the-broken-pipe" title="Permanent link">&para;</a></h3>
+<p>When <code>page_navigate</code> is called, <code>getContext()</code> (<code>pilot.go:210+</code>) finds <code>browsingContext</code> is empty and sends <code>browsingContext.getTree</code> over the pipe. By this point the pipe may already be in a bad state, causing the write to fail.</p>
+<h3 id="observation-3-readstderr-discards-clicker-output">Observation 3: readStderr discards clicker output<a class="headerlink" href="#observation-3-readstderr-discards-clicker-output" title="Permanent link">&para;</a></h3>
+<p><code>readStderr()</code> (<code>transport_pipe.go:119-124</code>) silently discards all stderr. If clicker is logging errors about why it's closing, we'd never see them.</p>
+<h2 id="suggested-fix">Suggested Fix<a class="headerlink" href="#suggested-fix" title="Permanent link">&para;</a></h2>
+<p>In <code>launchPipe()</code>, register a handler for <code>browsingContext.contextCreated</code> before calling <code>transport.Start()</code>, similar to how <code>waitForReady</code> registers for <code>vibium:lifecycle.ready</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">*</span><span class="nx">browserLauncher</span><span class="p">)</span><span class="w"> </span><span class="nx">launchPipe</span><span class="p">(</span><span class="nx">ctx</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span><span class="w"> </span><span class="nx">opts</span><span class="w"> </span><span class="o">*</span><span class="nx">LaunchOptions</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="nx">Pilot</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="nx">transport</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">newPipeTransport</span><span class="p">()</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="c1">// Capture browsing context from the contextCreated event</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nx">contextCh</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">chan</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nx">transport</span><span class="p">.</span><span class="nx">OnEvent</span><span class="p">(</span><span class="s">&quot;browsingContext.contextCreated&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">event</span><span class="w"> </span><span class="o">*</span><span class="nx">BiDiEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">params</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">            </span><span class="nx">Context</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&quot;context&quot;`</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">json</span><span class="p">.</span><span class="nx">Unmarshal</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">Params</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">params</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">            </span><span class="k">select</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="nx">contextCh</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nx">params</span><span class="p">.</span><span class="nx">Context</span><span class="p">:</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">            </span><span class="k">default</span><span class="p">:</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="p">})</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">transport</span><span class="p">.</span><span class="nx">Start</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">pipeOpts</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="c1">// Wait for context (should arrive before or with lifecycle.ready)</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nx">ctx</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&lt;-</span><span class="nx">contextCh</span><span class="p">:</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">        </span><span class="nx">pilot</span><span class="p">.</span><span class="nx">browsingContext</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">ctx</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="o">&lt;-</span><span class="nx">time</span><span class="p">.</span><span class="nx">After</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">):</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">        </span><span class="c1">// Fall back to getTree</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">    </span><span class="c1">// ... rest of initialization</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="response">Response<a class="headerlink" href="#response" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\&quot;data\&quot;: ...}&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">&quot;base64Encoded&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/tmp/response.json&quot;</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
+<p>Also consider logging stderr instead of discarding it, at least when debug mode is enabled.</p>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>w3pilot-mcp: v0.2.0 (17,860,338 bytes, Mach-O arm64)
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>clicker:     vdev (15,272,146 bytes, ~/go/bin/clicker)
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Go:          (check go version)
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>macOS:       arm64
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>MCP config:  ~/.kiro/settings/mcp.json
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  args: [&quot;-headless=false&quot;, &quot;-timeout=60s&quot;, &quot;-project=achmea-dast&quot;]
 </code></pre></div>
-<p>For binary content:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;iVBORw0KGgo...&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">&quot;base64Encoded&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45678</span><span class="p">,</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nt">&quot;mimeType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;image/png&quot;</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">}</span>
-</code></pre></div></p>
-<h2 id="cdp-implementation">CDP Implementation<a class="headerlink" href="#cdp-implementation" title="Permanent link">&para;</a></h2>
-<p>Uses <code>Network</code> domain:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// Enable Network with response body capture</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">await</span><span class="w"> </span><span class="nx">cdp</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;Network.enable&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nx">maxResourceBufferSize</span><span class="o">:</span><span class="w"> </span><span class="mf">10000000</span><span class="p">,</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nx">maxTotalBufferSize</span><span class="o">:</span><span class="w"> </span><span class="mf">50000000</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">});</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">// Get response body</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">base64Encoded</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">cdp</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;Network.getResponseBody&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="nx">requestId</span><span class="o">:</span><span class="w"> </span><span class="nx">requestId</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="p">});</span>
-</code></pre></div>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<p>Network interception must be enabled to capture response bodies. This may require:</p>
-<ol>
-<li>Enabling <code>Network.enable</code> with buffer settings</li>
-<li>Optionally using <code>Fetch.enable</code> for request interception</li>
-</ol>
-<h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>API debugging</strong>: Inspect actual response payloads</li>
-<li><strong>Test fixtures</strong>: Save responses for mocking</li>
-<li><strong>Validation</strong>: Verify response content matches expected</li>
-<li><strong>Binary inspection</strong>: Check downloaded images/files</li>
-</ol>
-<h2 id="w3pilot-integration">W3Pilot Integration<a class="headerlink" href="#w3pilot-integration" title="Permanent link">&para;</a></h2>
-<p>Once available in clicker:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// SDK</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">pilot</span><span class="p">.</span><span class="nx">GetNetworkResponseBody</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">requestId</span><span class="p">)</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">Content</span><span class="p">)</span><span class="w">      </span><span class="c1">// Response body</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">Base64Encoded</span><span class="p">)</span><span class="w"> </span><span class="c1">// true for binary</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">// MCP Tool</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1">// tool: get_network_response_body</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1">// params: { request_id: string, save_to?: string }</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1">// returns: { body: string, base64_encoded: bool, size: number }</span>
-</code></pre></div>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://chromedevtools.github.io/devtools-protocol/tot/Network/#method-getResponseBody">CDP Network.getResponseBody</a></li>
-<li><a href="https://github.com/anthropics/chrome-devtools-mcp">Chrome DevTools MCP - get_network_request</a></li>
-</ul>
+<h2 id="impact">Impact<a class="headerlink" href="#impact" title="Permanent link">&para;</a></h2>
+<p>All w3pilot MCP tool calls fail after <code>browser_launch</code>. The MCP server is unusable for any browser automation task.</p>
+<p>Previously working config with <code>vibium-mcp</code> binary (same architecture) at:
+<code>~/go/src/gitlab.com/saviynt/product/appsec/analysis_CNP-CC-EIC-TRUNK/.kiro/settings/mcp.json</code></p>
 
 
 

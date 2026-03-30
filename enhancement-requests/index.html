@@ -1110,6 +1110,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../releases/v0.8.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    v0.8.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../releases/v0.7.0/" class="md-nav__link">
         
   
@@ -1316,62 +1339,20 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-deferred" class="md-nav__link">
+  <a href="#naming-convention" class="md-nav__link">
     <span class="md-ellipsis">
-      Why Deferred?
+      Naming Convention
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-revisit" class="md-nav__link">
+  <a href="#historical-note" class="md-nav__link">
     <span class="md-ellipsis">
-      When to Revisit
+      Historical Note
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#upstream-repository" class="md-nav__link">
-    <span class="md-ellipsis">
-      Upstream Repository
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#original-implementation-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Original Implementation Notes
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Original Implementation Notes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#original-approach-now-optional" class="md-nav__link">
-    <span class="md-ellipsis">
-      Original Approach (Now Optional)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#current-approach-dual-protocol" class="md-nav__link">
-    <span class="md-ellipsis">
-      Current Approach (Dual Protocol)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1395,20 +1376,14 @@
 
 
 <h1 id="enhancement-requests">Enhancement Requests<a class="headerlink" href="#enhancement-requests" title="Permanent link">&para;</a></h1>
-<p>This directory contains enhancement requests for upstream dependencies (primarily VibiumDev/vibium clicker).</p>
-<blockquote>
-<p><strong>Note (2026-03-24)</strong>: These requests are now <strong>optional</strong>. W3Pilot will implement dual-protocol
-support (BiDi + CDP) connecting directly to Chrome's CDP endpoint alongside clicker's BiDi connection.
-See <a href="../../TASKS.md">TASKS.md</a> for the dual-protocol architecture.</p>
-</blockquote>
+<p>This directory contains enhancement requests for W3Pilot based on real-world usage feedback.</p>
 <h2 id="status-legend">Status Legend<a class="headerlink" href="#status-legend" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Proposed</strong>: Initial draft, not yet submitted</li>
-<li><strong>Deferred</strong>: Not needed due to dual-protocol approach</li>
-<li><strong>Submitted</strong>: PR/Issue created in upstream repo</li>
-<li><strong>Accepted</strong>: Upstream has agreed to implement</li>
-<li><strong>Implemented</strong>: Available in upstream release</li>
-<li><strong>Integrated</strong>: Integrated into W3Pilot</li>
+<li><strong>Proposed</strong>: Initial draft, under consideration</li>
+<li><strong>Accepted</strong>: Approved for implementation</li>
+<li><strong>In Progress</strong>: Currently being implemented</li>
+<li><strong>Complete</strong>: Implemented and released</li>
+<li><strong>Declined</strong>: Not accepted (with rationale)</li>
 </ul>
 <h2 id="current-requests">Current Requests<a class="headerlink" href="#current-requests" title="Permanent link">&para;</a></h2>
 <table>
@@ -1418,75 +1393,29 @@ See <a href="../../TASKS.md">TASKS.md</a> for the dual-protocol architecture.</p
 <th>Title</th>
 <th>Priority</th>
 <th>Status</th>
-<th>Target</th>
+<th>Version</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="EHRQ_heap-snapshot/">EHRQ_heap-snapshot</a></td>
-<td>Heap Snapshot Support</td>
-<td>P0</td>
-<td>Deferred</td>
-<td>clicker</td>
-</tr>
-<tr>
-<td><a href="EHRQ_network-response-body/">EHRQ_network-response-body</a></td>
-<td>Network Response Body</td>
-<td>P1</td>
-<td>Deferred</td>
-<td>clicker</td>
-</tr>
-<tr>
-<td><a href="EHRQ_emulation-presets/">EHRQ_emulation-presets</a></td>
-<td>Network/CPU Emulation</td>
-<td>P1</td>
-<td>Deferred</td>
-<td>clicker</td>
+<td><a href="mcp-enhancements-2026-03-29/">mcp-enhancements-2026-03-29</a></td>
+<td>MCP Server Enhancements</td>
+<td>Mixed</td>
+<td>Complete</td>
+<td>v0.8.0</td>
 </tr>
 </tbody>
 </table>
-<h2 id="why-deferred">Why Deferred?<a class="headerlink" href="#why-deferred" title="Permanent link">&para;</a></h2>
-<p><strong>Discovery (2026-03-24)</strong>: Chrome exposes both BiDi and CDP on the same browser instance:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────────────────────────────────────────────┐
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│                      Chrome Browser                          │
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│                   (launched by clicker)                      │
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├─────────────────────────────────────────────────────────────┤
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│  BiDi WebSocket ◄──── clicker (existing)                    │
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│  CDP WebSocket  ◄──── W3Pilot CDPClient (new)              │
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>└─────────────────────────────────────────────────────────────┘
-</code></pre></div>
-<p>W3Pilot can connect directly to Chrome's CDP port (discovered via <code>DevToolsActivePort</code> file)
-without requiring clicker modifications.</p>
-<h2 id="when-to-revisit">When to Revisit<a class="headerlink" href="#when-to-revisit" title="Permanent link">&para;</a></h2>
-<p>These requests may be worth submitting if:</p>
-<ol>
-<li><strong>Performance</strong>: Direct CDP has overhead vs clicker passthrough</li>
-<li><strong>Coordination</strong>: Two connections cause race conditions</li>
-<li><strong>Simplicity</strong>: Single protocol preferred over dual</li>
-</ol>
-<h2 id="upstream-repository">Upstream Repository<a class="headerlink" href="#upstream-repository" title="Permanent link">&para;</a></h2>
-<p><strong>VibiumDev/vibium</strong>: https://github.com/VibiumDev/vibium</p>
-<p>Clicker source: <code>/clicker/</code></p>
-<h2 id="original-implementation-notes">Original Implementation Notes<a class="headerlink" href="#original-implementation-notes" title="Permanent link">&para;</a></h2>
-<p>All enhancement requests require CDP (Chrome DevTools Protocol) access. Clicker currently uses WebDriver BiDi which doesn't expose these CDP domains:</p>
+<h2 id="naming-convention">Naming Convention<a class="headerlink" href="#naming-convention" title="Permanent link">&para;</a></h2>
+<p>Files follow the pattern: <code>&lt;topic&gt;-YYYY-MM-DD.md</code></p>
 <ul>
-<li><code>HeapProfiler</code> - For heap snapshots</li>
-<li><code>Network.getResponseBody</code> - For response content</li>
-<li><code>Network.emulateNetworkConditions</code> - For throttling</li>
-<li><code>Emulation.setCPUThrottlingRate</code> - For CPU throttling</li>
+<li>Date indicates when the request was received/created</li>
+<li>Topic should be descriptive but concise</li>
 </ul>
-<h3 id="original-approach-now-optional">Original Approach (Now Optional)<a class="headerlink" href="#original-approach-now-optional" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Add CDP passthrough in clicker's BiDi proxy</li>
-<li>Expose as <code>vibium:*</code> commands following existing patterns</li>
-<li>W3Pilot integrates via existing transport</li>
-</ol>
-<h3 id="current-approach-dual-protocol">Current Approach (Dual Protocol)<a class="headerlink" href="#current-approach-dual-protocol" title="Permanent link">&para;</a></h3>
-<ol>
-<li>W3Pilot establishes direct CDP connection to Chrome</li>
-<li>Manage two connections (BiDi via clicker + CDP direct)</li>
-<li>No upstream dependency for CDP features</li>
-</ol>
+<h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
+<p>This directory previously contained enhancement requests for upstream dependencies (VibiumDev/clicker).
+Those were deleted after W3Pilot adopted a dual-protocol architecture (BiDi + CDP), making upstream
+CDP passthrough unnecessary. W3Pilot connects directly to Chrome's CDP endpoint for profiling features.</p>
 
 
 
